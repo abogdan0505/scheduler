@@ -1,3 +1,4 @@
+import { SchedulerModule } from './scheduler/scheduler.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SchedulerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

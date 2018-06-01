@@ -1,0 +1,84 @@
+<!-- 
+
+<div class="week">
+  <div class="day" *ngFor="let day of displayedWeek" (click)="getDay(day)">
+    <div class="day__header">
+      <div class="month">{{day.month}}</div>
+      <div class="year">{{day.year}}</div>
+      <div class="week__days">{{day.day}}</div>
+    </div>
+  </div>
+</div>
+
+<button (click)="addToBody()">Click me </button>
+<form [formGroup]="formGroup">
+  <input type="text" formControlName="schHour">
+</form>
+<div [myDraggable]="{data: 'Draggable B'}" class="draggable">Draggable B</div>
+<button (click)="previousWeek(weekDays[0])">Previous</button>
+<span>{{currentStartDay}} - {{currentEndDay}} {{currentYear}}</span>
+<button (click)="nextWeek(weekDays[6])">Next</button>
+<div class="layout-table">
+  <div class="layout-header">
+    <div [myDropTarget]="{zone:'another'}" class="layout-column layout-column--first">
+      <div class="day day--first"></div>
+      <div *ngFor="let hour of hours; let i = index;" (click)="getHour(hour, day)">
+        <div class="hour hour--first">
+          {{hour.hour}}
+        </div>
+      </div>
+    </div>
+    <div class="layout-column" *ngFor="let day of weekDays; let first = first" (click)="getDay(day)">
+      <div class="day">{{day | date:'EEEE'}}
+        <div>{{day | date:'dd'}}</div>
+      </div>
+      <div>
+        <div *ngFor="let hour of hours; let i = index;" (click)="getHour(hour, day, $event)">
+          <div myDropTarget (myDrop)="onDrop($event)" class="drop-target hour">
+            <div [myDraggable]="{data: schHour}" class="draggable">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <div>{{day.year}}</div>
+      <div>{{day.day}}</div>
+      <div>{{day.month}}</div>
+    </div>
+  </div>
+
+  <div class="layout-row">
+      <div class="layout-column"> a </div>
+      <div class="layout-column"> a 1</div>
+      <div class="layout-column"> a </div>
+      <div class="layout-column"> a </div>
+  </div>
+</div> -->
+
+
+<button (click)="previousWeek(weekDays[0])">Previous</button>
+<span>{{currentStartDay}} - {{currentEndDay}} {{currentYear}}</span>
+<button (click)="nextWeek(weekDays[6])">Next</button>
+<div class="layout-table">
+  <div class="layout-header">
+    <div [myDropTarget]="{zone:'another'}" class="layout-column layout-column--first">
+      <div class="day day--first"></div>
+      <div *ngFor="let hour of hours; let i = index;" (click)="getHour(hour, day)">
+        <div class="hour hour--first">
+          {{hour.hour}}
+        </div>
+      </div>
+    </div>
+    <div class="layout-column" *ngFor="let day of weekDays; let first = first" (click)="getDay(day)">
+      <div class="day">{{day | date:'EEEE'}}
+        <div>{{day | date:'dd'}}</div>
+      </div>
+      <div>
+        <div *ngFor="let hour of hours; let i = index;" (click)="getHour(hour, day, $event)">
+          <div myDropTarget (myDrop)="onDrop($event)" class="drop-target hour">
+            &nbsp;
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

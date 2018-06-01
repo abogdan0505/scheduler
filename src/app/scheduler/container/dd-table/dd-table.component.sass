@@ -1,0 +1,103 @@
+.layout-table
+    display: table
+    clear: both
+    table-layout: fixed
+    width: 100%
+    height: 100%
+
+.layout-header, layout-footer, layout-row 
+    display: table-row
+    clear: both
+    empty-cells: show
+    width: 100%
+    height: 100%
+
+.layout-column
+    display: table-column
+    float: left
+    width: 13.5%
+    min-width: 13.5%
+    box-sizing: border-box
+    height: 100%
+    &--first
+        width: 5.5%
+        min-width: 5.5%
+
+.day
+    height: 100px
+    overflow: hidden
+    z-index: 1001
+
+.hour
+    // background-color: #e1e1e1
+    height: 60px
+    display: block
+    &--first
+        background-color: #eaeaea
+    &--first::after
+        content: ''
+        border-bottom: #e0e0e0 1px solid
+        position: absolute
+        width: 100%
+        z-index: 3
+        pointer-events: none
+
+#div1, #div2
+    float: left
+    width: 100px
+    height: 35px
+    margin: 10px
+    padding: 10px
+    border: 1px solid black
+#drag1
+    background-color: lightgray
+    width: 70px
+    display: table-cell
+    position: absolute
+    // top: 200px
+    overflow: hidden
+    text-overflow: ellipsis
+    z-index: 1000
+#drag2
+    background-color: lightblue
+    width: 70px
+    display: table-cell
+    position: absolute
+    overflow: hidden
+    text-overflow: ellipsis
+    z-index: 1000
+#drag3
+    background-color: navy
+    color: #fff
+    box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.5)
+    padding: 0 3px
+    height: 320px
+    // display: table-cell
+    // position: relative
+    z-index: 1000
+    min-width: 90px
+.drag3-content
+    height: 100%
+    width: 100%
+    position: relative
+
+.day-drag-container
+    height: 1440px
+    padding-right: 20px
+    border-left: #e0e0e0 1px solid
+    border-right: #e0e0e0 1px solid
+    overflow: hidden
+    text-overflow: ellipsis
+    position: relative
+    // background-color: lightblue
+
+.hour-border
+    height: 42px
+.hour-border::after
+    content: ''
+    border-bottom: #e0e0e0 1px solid
+    position: absolute
+    width: 100%
+   
+    z-index: 3
+    pointer-events: none

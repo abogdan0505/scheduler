@@ -1,0 +1,63 @@
+<button (click)="previousWeek(weekDays[0])">Previous</button>
+<span>{{currentStartDay}} - {{currentEndDay}} {{currentYear}}</span>
+<button (click)="nextWeek(weekDays[6])">Next</button>
+<div class="layout-table">
+  <div class="layout-header">
+    <div class="layout-column layout-column--first">
+      <div class="day day--first"></div>
+      <div *ngFor="let hour of hours; let i = index; let last = last; let first = first" (click)="getHour(hour, day)">
+        <div class="hour hour--first" *ngIf="!last">
+          {{!first ? hour.hour : ''}}
+        </div>
+      </div>
+    </div>
+    <div class="layout-column" *ngFor="let day of weekDays; let first = first" (click)="getDay(day)">
+      <div class="day" >{{day | date:'EEEE'}}
+        <div>{{day | date:'dd'}}</div>
+      </div>
+      <div class="day-drag-container" [attr.data-day]="day | date: 'MM/dd/yyyy'" (mouseup)="drop($event)" (mousemove)="allowDrop($event)">
+      
+      </div>
+      <!-- <div *ngFor="let hour of hours; let i = index;" (click)="getHour(hour, day, $event)">
+        <div class="hour">
+          
+        </div>
+      </div> -->
+        <!-- <div draggable="true"
+          (dragstart)="drag($event)"
+          id="drag1">
+        </div> -->
+    </div>
+  </div>
+</div>
+<div draggable="true"
+  (dragstart)="drag($event)"
+  id="drag1">
+  tes11t 1drag event testtest11
+  
+</div>
+<div draggable="true"
+  (dragstart)="drag($event)"
+  id="drag2">
+  test2 drag2 event2 testtest2
+</div>
+<button
+  (mousedown)="drag($event)"
+  (dragstart)="preventDrag($event)"
+  id="drag3">
+    Event3 {{dateHour | date: 'HH:mm'}}
+  
+</button>
+<!-- <div id="div1"
+    (drop)="drop($event)"
+    (dragover)="allowDrop($event)">
+</div>
+<div id="div2"
+    (drop)="drop($event)"
+    (dragover)="allowDrop($event)">
+    <div draggable="true"
+        (dragstart)="drag($event)"
+        id="drag1">
+        test drag event testtest
+    </div>
+</div> -->
